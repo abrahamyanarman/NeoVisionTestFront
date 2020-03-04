@@ -1,0 +1,21 @@
+<div *ngIf="isReady">
+  <h3>User Information</h3>
+  <ul>
+    <li>username : {{user.username}}</li>
+    <li>firstName : {{user.firstName}}</li>
+    <li>lastName : {{user.lastName}}</li>
+    <li>address : {{user.address}}</li>
+    <li>country : {{user.country}}</li>
+    <li>role: {{userRoles}}</li>
+  </ul>
+  <logout-button></logout-button>
+  <button (click)="isEditPartOpened = !isEditPartOpened">edit</button>
+
+  <ng-container *ngIf="isEditPartOpened">
+    <input [(ngModel)]="user.firstName">
+    <input [(ngModel)]="user.lastName">
+    <input [(ngModel)]="user.address">
+    <input [(ngModel)]="user.country">
+    <button (click)="updateUserInfo()">saveChanges</button>
+  </ng-container>
+</div>
